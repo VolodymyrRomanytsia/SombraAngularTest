@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+  <div class="col-10">
+    <div class="d-flex justify-content-between m-3">
+      <h3>Products</h3>
+      <button class="btn btn-light" routerLink="/products/new" (click)="addProduct()"> Add Product</button>
+    </div>
+    <table class="table table-striped">
+      <thead class="text-center">
+      <tr>
+        <th class="hidden">Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let product of (productState | async).products">
+        <td class="hidden">{{product.id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td class="d-flex justify-content-around">
+          <button class="btn btn-primary pr-4 pl-4" [routerLink]="['/products/update', product.id]"> Edit</button>
+          <button class="btn btn-danger" (click)="delete(product)"> Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+

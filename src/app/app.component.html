@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a routerLink="/" class="navbar-brand">Sombra test</a>
+  <button (click)="isNavbarCollapsed = !isNavbarCollapsed" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
+          aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" 
+       [ngbCollapse]="!isNavbarCollapsed"
+       id="navbar">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item"><a routerLink="products" class="nav-link">Products</a></li>
+      <li class="nav-item"><a routerLink="customers" class="nav-link">Customers</a></li>
+    </ul>
+  </div>
+</nav>
+<app-loader></app-loader>
+<router-outlet></router-outlet>
